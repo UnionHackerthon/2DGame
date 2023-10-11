@@ -59,8 +59,11 @@
     <Compile Include="Assets\Script\Singleton.cs" />
     <Compile Include="Assets\Script\Door.cs" />
     <Compile Include="Assets\Script\DungeonCrawlerController.cs" />
+    <Compile Include="Assets\Script\Monster.cs" />
+    <Compile Include="Assets\Script\BalanceAI.cs" />
     <Compile Include="Assets\Script\RoomInfo.cs" />
     <Compile Include="Assets\Script\RoomController.cs" />
+    <Compile Include="Assets\Script\UserStatus.cs" />
     <Compile Include="Assets\Script\CameraFollow.cs" />
     <Compile Include="Assets\Script\Room.cs" />
     <Compile Include="Assets\Script\FadeInOut.cs" />
@@ -70,7 +73,7 @@
     <Compile Include="Assets\Script\RoomPrefabsSet.cs" />
     <Compile Include="Assets\Script\RoomMinimap.cs" />
     <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\Monster.cs" />
+    <Compile Include="Assets\MobStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Shader\VertexNormals.shader" />
