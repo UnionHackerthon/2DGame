@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\MobStatus.cs" />
     <Compile Include="Assets\Script\Singleton.cs" />
     <Compile Include="Assets\Script\Door.cs" />
     <Compile Include="Assets\Script\DungeonCrawlerController.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="Assets\Script\RoomPrefabsSet.cs" />
     <Compile Include="Assets\Script\RoomMinimap.cs" />
     <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\MobStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Shader\VertexNormals.shader" />
