@@ -25,6 +25,9 @@ public class Room : MonoBehaviour
     public GameObject prefabsDoor;
     public GameObject prefabsWall;
 
+    public int minsummon;
+    public int maxsummon;
+    public GameObject mob;
 
     public Room(int x, int y, int z)
     {
@@ -67,6 +70,19 @@ public class Room : MonoBehaviour
         }
 
         isUpdatedWalls = false;
+
+        if (roomName == "Single")
+        {
+            int summonamount = Random.Range(minsummon, maxsummon + 1);
+
+            for (int i = 0; i < summonamount; i++)
+            {
+                int x = Random.Range(center_Position.x - Width / 4, center_Position.x + (Width / 4) + 1);
+                int z = Random.Range(center_Position.z - Width / 4, center_Position.z + (Width / 4) + 1);
+                GameObject tmp = Instantiate(mob, new Vector3(gameObject.transform.position.x + x, 0, gameObject.transform.position.z + z), Quaternion.identity);
+                tmp.transform.parent = gameObject.transform;
+            }
+        }
     }
 
     public void RemoveUnconnectedWalls()
