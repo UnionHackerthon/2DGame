@@ -35,7 +35,7 @@ public class Player : Singleton<Player>
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Door")
+        if (collision.tag == "Door" && GameObject.Find("RoomController").GetComponent<RoomController>().currRoom.monsterNum==0)
         {
             FadeInOut.Instance.setFade(true, 1.35f);
 

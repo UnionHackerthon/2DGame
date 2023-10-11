@@ -87,8 +87,6 @@ public class Room : MonoBehaviour
                 tmp.transform.parent = gameObject.transform;
                 monsterNum++;
             }
-
-            
         }
     }
 
