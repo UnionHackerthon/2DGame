@@ -71,7 +71,8 @@ public class Room : MonoBehaviour
 
         isUpdatedWalls = false;
 
-        if (roomName == "Single")
+        
+        if (roomName == "Single" && distance != 0)
         {
             int summonamount = Random.Range(minsummon, maxsummon + 1);
 
