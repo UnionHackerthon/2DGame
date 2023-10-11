@@ -78,6 +78,14 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
 
     public RoomInfo[,] posArr = new RoomInfo[10, 10];       // 방 좌표에 대한 2차원 배열
 
+    public string GetElement()
+    {
+        int rn = Random.Range(0, 3);
+        if (rn == 0) return "Fire";
+        else if (rn == 1) return "Water";
+        else return "Grass";
+    }
+
     public void CreatedRoom()
     {
         // 배열 ReSize
@@ -131,6 +139,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
         RoomInfo single             = room;
         single.roomID               = name + "(" + pos.x + ", " + pos.y + ", " + pos.z + ")";
         single.roomName             = name;
+        single.element              = room.element;
         single.center_Position      = pos;
         single.parent_Position      = pos;
         single.roomType             = "Single";
@@ -225,6 +234,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
                             && !posArr[bossRoomPos.z, bossRoomPos.x].isValidRoom)
                         {
                             posArr[bossRoomPos.z, bossRoomPos.x].roomName               = "Boss";
+                            posArr[bossRoomPos.z, bossRoomPos.x].element                = GetElement();
                             posArr[bossRoomPos.z, bossRoomPos.x].isValidRoom = true;
                             posArr[bossRoomPos.z, bossRoomPos.x].center_Position        = bossRoomPos;
                             posArr[bossRoomPos.z, bossRoomPos.x].parent_Position        = bossRoomPos;
@@ -261,6 +271,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
                     if (PossibleArr(compensationsPos)) {
                         if ((AroundRoomCount(compensationsPos) < 2) && !posArr[compensationsPos.z, compensationsPos.x].isValidRoom) {
                             posArr[compensationsPos.z, compensationsPos.x].roomName                 = "Compensation";
+                            posArr[compensationsPos.z, compensationsPos.x].element                  = "None";
                             posArr[compensationsPos.z, compensationsPos.x].isValidRoom              = true;
                             posArr[compensationsPos.z, compensationsPos.x].center_Position          = compensationsPos;
                             posArr[compensationsPos.z, compensationsPos.x].parent_Position          = compensationsPos;
@@ -351,6 +362,8 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
         RoomInfo single = pos;
         single.roomID = name + "(" + pos.center_Position.x + ", " + pos.center_Position.y + ", " + pos.center_Position.z + ")";
         single.roomName = name;
+        single.element = GetElement();
+
         single.center_Position = pos.center_Position;
         single.mergeCenter_Position = pos.mergeCenter_Position;
         single.roomType = pos.roomType;

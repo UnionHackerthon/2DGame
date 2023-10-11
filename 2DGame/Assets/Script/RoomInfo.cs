@@ -9,6 +9,7 @@ public class RoomInfo
     public string roomName;
     public string roomType;
 
+    public string element;
     // 현재 방(개별)의 위치
     public Vector3Int center_Position;
     // 부모 방의 위치

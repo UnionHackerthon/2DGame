@@ -78,6 +78,7 @@ public class RoomController : Singleton<RoomController>
         room.transform.GetComponent<Room>().roomName                = settingRoom.roomName;
         room.transform.GetComponent<Room>().roomType                = settingRoom.roomType;
         room.transform.GetComponent<Room>().roomId                  = settingRoom.roomID;
+        room.transform.GetComponent<Room>().element                 = settingRoom.element;
         room.transform.GetComponent<Room>().parent_Position         = settingRoom.parent_Position;
         room.transform.GetComponent<Room>().mergeCenter_Position    = settingRoom.mergeCenter_Position;
         room.transform.GetComponent<Room>().distance                = settingRoom.distance;

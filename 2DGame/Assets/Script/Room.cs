@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
     public string roomName;
     public string roomType;
     public string roomId;
+    public string element;
 
     public Vector3Int center_Position;
     public Vector3Int parent_Position;
