@@ -63,6 +63,7 @@ MonoBehaviour:
   minsummon: 3
   maxsummon: 5
   mob: {fileID: 7646512524902809649, guid: 995e8a6453cb00d49831396e20712601, type: 3}
+  monsterNum: 0
   childRooms: {fileID: 0}
   updateRoomStatus: 0
 --- !u!1001 &3743831865870589796

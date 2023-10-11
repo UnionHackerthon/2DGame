@@ -28,6 +28,9 @@ public class Room : MonoBehaviour
     public int minsummon;
     public int maxsummon;
     public GameObject mob;
+    public int monsterNum;
+
+    public List<Transform> children = new List<Transform>();
 
     public Room(int x, int y, int z)
     {
@@ -82,9 +85,14 @@ public class Room : MonoBehaviour
                 int z = Random.Range(center_Position.z - Width / 4, center_Position.z + (Width / 4) + 1);
                 GameObject tmp = Instantiate(mob, new Vector3(gameObject.transform.position.x + x, 0, gameObject.transform.position.z + z), Quaternion.identity);
                 tmp.transform.parent = gameObject.transform;
+                monsterNum++;
             }
+
+            
         }
     }
+
+
 
     public void RemoveUnconnectedWalls()
     {
