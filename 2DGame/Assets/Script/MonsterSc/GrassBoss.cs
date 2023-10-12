@@ -42,5 +42,6 @@ public class GrassBoss : Monster
     public void EndAttack() 
     {
         fireBossAnimator.SetBool("Attack", false);
+        StartCoroutine(Attack());
     }
 }

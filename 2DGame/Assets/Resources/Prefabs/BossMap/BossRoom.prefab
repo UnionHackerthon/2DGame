@@ -538,7 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossType:
   - {fileID: 746510576953560324, guid: f212cd63e666ea54c8e00aee817cc521, type: 3}
-  - {fileID: 0}
+  - {fileID: 89447898561647541, guid: 63903d909859fed41887fe7b601573e0, type: 3}
   - {fileID: 2047739085989625693, guid: 9b0a0e7ef576aa94cbf71aa878342620, type: 3}
   Width: 20
   Height: 20
