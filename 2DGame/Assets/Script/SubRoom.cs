@@ -7,7 +7,7 @@ public class SubRoom : MonoBehaviour
 {
 
     public List<GameObject> monsterType;
-    public List<GameObject> bossType;
+
     public int Width;
     public int Height;
 

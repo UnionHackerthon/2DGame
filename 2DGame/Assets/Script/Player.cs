@@ -27,6 +27,10 @@ public class Player : Singleton<Player>
 
     public bool b;
 
+    float timer;
+
+    public int waitingTime;
+
     public GameObject bulletPrefab;
 
     void Start()
@@ -36,19 +40,25 @@ public class Player : Singleton<Player>
 
         chRenderer = this.gameObject.GetComponent<Renderer>();
         b = true;
+
+        timer = 0.0f;
     }
 
     void Update()
     {
+
+        timer += Time.deltaTime;
+
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
         transform.position += new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && timer > waitingTime) {
             GameObject bulletClone = Instantiate(bulletPrefab);
             bulletClone.transform.position = this.gameObject.transform.position;
             bulletClone.GetComponent<Bullet>().Move(mainCamera.ScreenToWorldPoint(Input.mousePosition), this.transform.position);
+            timer = 0.0f;
         }
 
         if (hp <= 0) {

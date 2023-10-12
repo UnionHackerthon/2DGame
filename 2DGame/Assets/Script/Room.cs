@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class Room : MonoBehaviour
 {
+
+    public List<GameObject> bossType;
+
     public int Width;
     public int Height;
 
@@ -54,6 +57,16 @@ public class Room : MonoBehaviour
         {
             Debug.Log("You pressed play in the wrong scene!");
             return;
+        }
+
+        if (roomName == "Boss") {
+            if (element == "Fire") {
+                Instantiate(bossType[0], this.gameObject.transform);
+            } else if (element == "Grass") {
+                Instantiate(bossType[1], this.gameObject.transform);
+            } else {
+                Instantiate(bossType[2], this.gameObject.transform);
+            }
         }
 
        
