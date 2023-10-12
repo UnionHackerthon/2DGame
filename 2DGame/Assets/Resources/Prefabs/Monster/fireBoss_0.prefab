@@ -131,3 +131,4 @@ MonoBehaviour:
   fireBossAnimator: {fileID: 746510576953560325}
   fireTime: 3
   AtDamage: 20
+  clearUi: {fileID: 7137996541137130395, guid: 537135677df7f6d4b91d0490436812de, type: 3}

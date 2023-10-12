@@ -32,6 +32,8 @@ public class Player : Singleton<Player>
     public int waitingTime;
 
     public GameObject bulletPrefab;
+    
+    public GameObject overUi;
 
     void Start()
     {
@@ -62,6 +64,7 @@ public class Player : Singleton<Player>
         }
 
         if (hp <= 0) {
+            overUi.SetActive(true);
             Time.timeScale = 0f;
         }
 
