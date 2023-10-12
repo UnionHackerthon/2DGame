@@ -11,18 +11,6 @@ public class Monster : MobStatus
 
     public int max;
 
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player").transform;
-    }
-    void Update()
-    {
-        transform.LookAt(player);
-
-        transform.position = Vector3.MoveTowards(transform.position, player.position, movespeed * Time.deltaTime);
-        
-    }
-
     void Die()
     {
         transform.GetComponentInParent<Room>().totalmonsterNum--;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 230b2ba789a32054e8f8a0d0929a7f04
+guid: 037d4a3fcc008764aaa201c721231d68
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grassMonster_0
+      name: fireBoss_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 36
-        width: 18
-        height: 18
+        y: 240
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcde85e0724d90446ac8d86888162080
-      internalID: -1293366206
+      spriteID: c70857d05362fbb49bd9cb50efead084
+      internalID: 867738002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grassMonster_1
+      name: fireBoss_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 36
-        width: 18
-        height: 18
+        x: 120
+        y: 240
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38680680900460e4ba93ae5ddae347d5
-      internalID: 182798324
+      spriteID: d2de8079b81752c45a650e824555a18b
+      internalID: 2142690087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grassMonster_2
+      name: fireBoss_2
       rect:
         serializedVersion: 2
-        x: 36
-        y: 36
-        width: 18
-        height: 18
+        x: 240
+        y: 240
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07ea92c2b8aff8d48b671ac2ea520c42
-      internalID: -1216538827
+      spriteID: 6230d2d35e4563d429755555aa96247b
+      internalID: -1153405485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grassMonster_3
+      name: fireBoss_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 18
-        width: 18
-        height: 18
+        y: 120
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4ad45334ac487f4aaa50c92e2e8cdd1
-      internalID: -1580058982
+      spriteID: af17890bd94b81845a5adf1a5715d19b
+      internalID: 1543811323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grassMonster_4
+      name: fireBoss_4
       rect:
         serializedVersion: 2
-        x: 18
-        y: 18
-        width: 18
-        height: 18
+        x: 120
+        y: 120
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95e3f11047048e24fa4d46365ca33e03
-      internalID: -968897617
+      spriteID: 7d1ac2141bf851d40b467c5a30f7e205
+      internalID: -958691015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grassMonster_5
+      name: fireBoss_5
       rect:
         serializedVersion: 2
-        x: 36
-        y: 18
-        width: 18
-        height: 18
+        x: 240
+        y: 120
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5be3e6d723886cf40bb449bdc26cadf8
-      internalID: 744063495
+      spriteID: d9f5967a1e02db2409f22c01ab878742
+      internalID: -1082620750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grassMonster_6
+      name: fireBoss_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 18
-        height: 18
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe985e98233ccd8458d5a40ecce6f6bd
-      internalID: -1940474956
+      spriteID: fddba0f870716994e8f25c42ed9d223b
+      internalID: -1683793636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grassMonster_7
+      name: fireBoss_7
       rect:
         serializedVersion: 2
-        x: 18
+        x: 120
         y: 0
-        width: 18
-        height: 18
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,8 +278,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c799b771dbed54548a5648c97e4d114b
-      internalID: -907703946
+      spriteID: fde4b7487db59e947a83bd4f246d0239
+      internalID: -418202699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireBoss_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e956a49fd00eb484da5f16865fc5e201
+      internalID: -21433905
       vertices: []
       indices: 
       edges: []
@@ -287,7 +308,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d4feb9eed725b4b42b41ef99189e302f
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -295,14 +316,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      grassMonster_0: -1293366206
-      grassMonster_1: 182798324
-      grassMonster_2: -1216538827
-      grassMonster_3: -1580058982
-      grassMonster_4: -968897617
-      grassMonster_5: 744063495
-      grassMonster_6: -1940474956
-      grassMonster_7: -907703946
+      fireBoss_0: 867738002
+      fireBoss_1: 2142690087
+      fireBoss_2: -1153405485
+      fireBoss_3: 1543811323
+      fireBoss_4: -958691015
+      fireBoss_5: -1082620750
+      fireBoss_6: -1683793636
+      fireBoss_7: -418202699
+      fireBoss_8: -21433905
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

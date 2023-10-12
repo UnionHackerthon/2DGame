@@ -37,12 +37,14 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\MobStatus.cs" />
+     <Compile Include="Assets\Script\MonsterSc\WaterBoss.cs" />
      <Compile Include="Assets\Script\Singleton.cs" />
      <Compile Include="Assets\Script\Door.cs" />
      <Compile Include="Assets\Script\DungeonCrawlerController.cs" />
      <Compile Include="Assets\Script\Monster.cs" />
      <Compile Include="Assets\Script\BalanceAI.cs" />
      <Compile Include="Assets\Script\RoomInfo.cs" />
+     <Compile Include="Assets\Script\MonsterSc\FireMonster.cs" />
      <Compile Include="Assets\Script\Bullet.cs" />
      <Compile Include="Assets\Script\RoomController.cs" />
      <Compile Include="Assets\Script\UserStatus.cs" />
@@ -54,8 +56,12 @@
      <Compile Include="Assets\Script\minimapCam.cs" />
      <Compile Include="Assets\Script\SubRoom.cs" />
      <Compile Include="Assets\Script\RoomPrefabsSet.cs" />
+     <Compile Include="Assets\Script\MonsterSc\GrassBoss.cs" />
      <Compile Include="Assets\Script\RoomMinimap.cs" />
      <Compile Include="Assets\Script\Player.cs" />
+     <Compile Include="Assets\Script\MonsterSc\GrassMonster.cs" />
+     <Compile Include="Assets\Script\MonsterSc\FireBoss.cs" />
+     <Compile Include="Assets\Script\MonsterSc\WaterMonster.cs" />
      <Compile Include="Assets\Script\HpPotion.cs" />
      <None Include="Assets\Resources\Shader\VertexNormals.shader" />
     <Reference Include="UnityEngine">
