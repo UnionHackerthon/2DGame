@@ -530,7 +530,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: End
 --- !u!222 &461527817
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   host: https://port-0-server-2dgame-12fhqa2blnmr988t.sel5.cloudtype.app
-  idurl: score/test3
+  idurl: score/test4
   posturl: score
   scriptableObject: {fileID: 11400000, guid: f1d93a530ca9d6b459fc73a2d4a21988, type: 2}
 --- !u!1 &1376737298
@@ -1994,7 +1994,7 @@ GameObject:
   - component: {fileID: 1672911378}
   - component: {fileID: 1672911381}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -30,6 +30,7 @@ public class RoomController : Singleton<RoomController>
     {
         StartUI.SetActive(false);
         CreatedRoom();
+        GameObject.Find("BackEndManager").GetComponent<BalanceAI>().gamelock = false;
     }
 
     public void CreatedRoom()

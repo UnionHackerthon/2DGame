@@ -24,10 +24,10 @@ public class GrassBoss : Monster
     private void Update() 
     {
         if (mobstatus.hp <= 0) {
-            clearUi.SetActive(true);
-            Time.timeScale = 0f;
+            GameObject.Find("GameUI").transform.Find("Clear").gameObject.SetActive(true);
             UserStatus.completed = true;
             GameObject.Find("BackEndManager").GetComponent<BalanceAI>().SetBalance();
+            Die();
         }
     }
 
