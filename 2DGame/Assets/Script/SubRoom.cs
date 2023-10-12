@@ -39,6 +39,8 @@ public class SubRoom : MonoBehaviour
     public int maxsummon;
     public GameObject mob;
 
+    public GameObject potion;
+
     // Start is called before the first frame update
     void Start()
     {

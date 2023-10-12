@@ -17,4 +17,6 @@ public class Monster : MobStatus
         transform.position = Vector3.MoveTowards(transform.position, player.position, movespeed * Time.deltaTime);
         
     }
+
+
 }

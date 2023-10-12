@@ -8,6 +8,12 @@ public class Bullet : MonoBehaviour
 
     public float speed;
 
+    public GameObject potion;
+
+    public int min;
+
+    public int max;
+
     public void Move(Vector3 target, Vector3 playerPos) 
     {
         // 총알 방향 설정
@@ -26,6 +32,10 @@ public class Bullet : MonoBehaviour
         }
         if (other.CompareTag("Monster")) {
             other.transform.GetComponentInParent<Room>().totalmonsterNum--;
+            if (6 == Random.Range(min, max)) {
+                GameObject potionCLone = Instantiate(potion);
+                potionCLone.transform.position = this.gameObject.transform.position;
+            }
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,21 @@ public class Player : Singleton<Player>
     public static Player self;
     public float speed = 5.0f;
 
+    public float maxhp = 100f;
+    public float hp = 100f;
+
     public float horizontal;
     public float vertical;
 
     public bool isMoveStatus = true;
 
     public Camera mainCamera;
+
+    Renderer chRenderer;
+
+    public float a;
+
+    public bool b;
 
     public GameObject bulletPrefab;
 
@@ -21,7 +31,8 @@ public class Player : Singleton<Player>
         if (self == null)
             self = this;
 
-        
+        chRenderer = this.gameObject.GetComponent<Renderer>();
+        b = true;
         
     }
 
@@ -36,6 +47,10 @@ public class Player : Singleton<Player>
             GameObject bulletClone = Instantiate(bulletPrefab);
             bulletClone.transform.position = this.gameObject.transform.position;
             bulletClone.GetComponent<Bullet>().Move(mainCamera.ScreenToWorldPoint(Input.mousePosition), this.transform.position);
+        }
+
+        if (hp <= 0) {
+            Time.timeScale = 0f;
         }
 
     }
@@ -54,19 +69,40 @@ public class Player : Singleton<Player>
 
             Player.Instance.transform.position = currPos;
 
-            for (int i = 0; i < RoomController.Instance.loadedRooms.Count; i++)
-            {
-                if (nextRoom.GetComponent<Room>().parent_Position == RoomController.Instance.loadedRooms[i].parent_Position)
-                {
+            for (int i = 0; i < RoomController.Instance.loadedRooms.Count; i++) {
+                if (nextRoom.GetComponent<Room>().parent_Position == RoomController.Instance.loadedRooms[i].parent_Position) {
                     RoomController.Instance.loadedRooms[i].childRooms.gameObject.SetActive(true);
-                }
-                else
-                {
+                } else {
                     RoomController.Instance.loadedRooms[i].childRooms.gameObject.SetActive(false);
                 }
             }
 
             FadeInOut.Instance.setFade(false, 0.15f);
         }
+
+        if (collision.CompareTag("Potion") && maxhp > hp + collision.GetComponent<HpPotion>().value) {
+            hp += collision.GetComponent<HpPotion>().value;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerStay(Collider other) 
+    {
+        if (other.CompareTag("Monster") && b) {
+            StartCoroutine(ColorChange());
+            UserStatus.hit++;
+            hp -= 10;
+            b = false;
+        }
+    }
+
+    IEnumerator ColorChange() 
+    {
+        for (int i = 0; i < 3; i++) {
+            chRenderer.material.color = Color.red;
+            yield return new WaitForSeconds((float)a/3);
+            chRenderer.material.color = Color.black;
+        }
+        b = true;
     }
 }
