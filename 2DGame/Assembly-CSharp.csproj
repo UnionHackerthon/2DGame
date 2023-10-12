@@ -43,6 +43,7 @@
      <Compile Include="Assets\Script\Monster.cs" />
      <Compile Include="Assets\Script\BalanceAI.cs" />
      <Compile Include="Assets\Script\RoomInfo.cs" />
+     <Compile Include="Assets\Script\Bullet.cs" />
      <Compile Include="Assets\Script\RoomController.cs" />
      <Compile Include="Assets\Script\UserStatus.cs" />
      <Compile Include="Assets\Script\CameraFollow.cs" />
@@ -54,7 +55,6 @@
      <Compile Include="Assets\Script\RoomPrefabsSet.cs" />
      <Compile Include="Assets\Script\RoomMinimap.cs" />
      <Compile Include="Assets\Script\Player.cs" />
-     <Compile Include="Assets\Script\Bullet.cs" />
      <None Include="Assets\Resources\Shader\VertexNormals.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

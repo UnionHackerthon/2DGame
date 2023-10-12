@@ -20,6 +20,8 @@ public class Player : Singleton<Player>
     {
         if (self == null)
             self = this;
+
+        
         
     }
 
@@ -33,7 +35,7 @@ public class Player : Singleton<Player>
         if (Input.GetMouseButtonDown(0)) {
             GameObject bulletClone = Instantiate(bulletPrefab);
             bulletClone.transform.position = this.gameObject.transform.position;
-            bulletClone.GetComponent<Bullet>().target= mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            bulletClone.GetComponent<Bullet>().Move(mainCamera.ScreenToWorldPoint(Input.mousePosition), this.transform.position);
         }
 
     }

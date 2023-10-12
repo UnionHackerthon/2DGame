@@ -6,32 +6,30 @@ public class Bullet : MonoBehaviour
 {
     //[SerializeField] private float deamge;
 
-    public Vector3 target;
-
-
-
     public float speed;
 
-    public void Update()
+    public void Move(Vector3 target, Vector3 playerPos) 
     {
         // 총알 방향 설정
-        Vector3 dir = target - transform.position;
+        Vector3 dir = target - playerPos;
         dir.Normalize();
 
         // 총알 방향으로 이동
-        GetComponent<Rigidbody>().velocity = dir * speed;
+        Vector3 pos = dir * speed;
+        GetComponent<Rigidbody>().velocity = pos;
     }
 
+    public void OnTriggerEnter(Collider other) {    
 
-    public void OnTriggerEnter2D(Collider2D other) {    
-        // if (other.CompareTag("Player")) {
-        //     other.GetComponent<Player>().Hp -= deamge;
-        // } else if (other.CompareTag("Monster")) {
-        //     other.GetComponent<Monster>().Hp -= deamge;
-        // }
-        if (other.CompareTag("Monster")) {
+        if (other.CompareTag("Wall")) {
             Destroy(this.gameObject);
         }
+        if (other.CompareTag("Monster")) {
+            other.transform.GetComponentInParent<Room>().totalmonsterNum--;
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+        
     }
 
 
