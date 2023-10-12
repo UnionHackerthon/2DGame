@@ -26,4 +26,14 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void OnCLickReStart() 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OnCLickMain()
+    {
+        SceneManager.LoadScene("Main");
+    }
 }

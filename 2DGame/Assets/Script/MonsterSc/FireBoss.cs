@@ -11,6 +11,8 @@ public class FireBoss : Monster
 
     public int AtDamage;
 
+    public GameObject clearUi;
+
     void Start()
     {
         this.gameObject.GetComponent<Animator>();
@@ -22,11 +24,10 @@ public class FireBoss : Monster
 
     private void Update() 
     {
-        
-        fireBossAnimator.SetBool("Attack", true);
-        GameObject.Find("Player").GetComponent<Player>().hp -= AtDamage;
-        
-    
+        if (hp < 0) {
+            clearUi.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
 
@@ -36,8 +37,6 @@ public class FireBoss : Monster
 
         fireBossAnimator.SetBool("Attack", true);
         GameObject.Find("Player").GetComponent<Player>().hp -= AtDamage;
-        
-
     }
 
 

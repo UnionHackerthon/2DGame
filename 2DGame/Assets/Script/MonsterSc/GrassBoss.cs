@@ -10,19 +10,33 @@ public class GrassBoss : Monster
 
     public int Atdamage;
 
+    public GameObject clearUi;
+
     void Start()
     {
         this.gameObject.GetComponent<Animator>();
 
         player = GameObject.FindWithTag("Player").transform;
+
+        StartCoroutine(Attack());
     }
 
     private void Update() 
     {
-        if (3f > Vector3.Distance(player.transform.position, this.transform.position)) {
-            fireBossAnimator.SetBool("Attack", true);
-            GameObject.Find("Player").GetComponent<Player>().hp -= damage;
+        if (hp < 0) {
+            clearUi.SetActive(true);
+            Time.timeScale = 0f;
         }
+    }
+
+    IEnumerator Attack() 
+    {
+        yield return new WaitForSeconds(fireTime);
+
+        fireBossAnimator.SetBool("Attack", true);
+        GameObject.Find("Player").GetComponent<Player>().hp -= Atdamage;
+        
+
     }
 
     public void EndAttack() 

@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     public GameObject potion;
 
+    public int deamge = 10;
+
     public int min;
 
     public int max;

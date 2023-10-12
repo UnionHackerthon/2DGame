@@ -12,6 +12,8 @@ public class WaterBoss : Monster
 
     public float fireTime;
 
+    public GameObject clearUi;
+
     void Start()
     {
         this.gameObject.GetComponent<Animator>();
@@ -19,11 +21,16 @@ public class WaterBoss : Monster
         StartCoroutine(Attack());
 
         player = GameObject.FindWithTag("Player").transform;
-
-        fireBossAnimator.SetBool("Attack", false);
-        fireBossAnimator.SetBool("BAttack", false);
     }
 
+
+    private void Update() 
+    {
+        if (hp < 0) {
+            clearUi.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
 
     IEnumerator Attack() 
     {
