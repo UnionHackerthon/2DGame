@@ -12,6 +12,10 @@ public class Player : Singleton<Player>
 
     public bool isMoveStatus = true;
 
+    public Camera mainCamera;
+
+    public GameObject bulletPrefab;
+
     void Start()
     {
         if (self == null)
@@ -19,18 +23,19 @@ public class Player : Singleton<Player>
         
     }
 
-    public void PlayerMove()
+    void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
         transform.position += new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
-    }
 
-    void Update()
-    {
-        if (isMoveStatus)
-            PlayerMove();
+        if (Input.GetMouseButtonDown(0)) {
+            GameObject bulletClone = Instantiate(bulletPrefab);
+            bulletClone.transform.position = this.gameObject.transform.position;
+            bulletClone.GetComponent<Bullet>().target= mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        }
+
     }
 
     private void OnTriggerEnter(Collider collision)

@@ -8,18 +8,22 @@ public class Bullet : MonoBehaviour
 
     public Vector3 target;
 
+
+
     public float speed;
 
-    public void Update() 
+    public void Update()
     {
+        // 총알 방향 설정
         Vector3 dir = target - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
+        dir.Normalize();
 
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        // 총알 방향으로 이동
+        GetComponent<Rigidbody>().velocity = dir * speed;
     }
 
 
-    public void OnTriggerEnter2D(Collider2D other) {
+    public void OnTriggerEnter2D(Collider2D other) {    
         // if (other.CompareTag("Player")) {
         //     other.GetComponent<Player>().Hp -= deamge;
         // } else if (other.CompareTag("Monster")) {
