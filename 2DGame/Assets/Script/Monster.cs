@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MobStatus
+public class Monster : MonoBehaviour
 {
     public Transform player;
     public GameObject potion;
+    public MobStatus mobstatus;
 
     public int min;
 
@@ -13,8 +14,15 @@ public class Monster : MobStatus
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Bullet")) {
-            hp -= other.GetComponent<Bullet>().damage;
+            mobstatus.hp -= other.GetComponent<Bullet>().damage;
         }
+    }
+
+    public void Balancing()
+    {
+        mobstatus.hp = (int)Mathf.Round(mobstatus.hp * mobstatus.multiple);
+        mobstatus.damage = (int)Mathf.Round(mobstatus.damage * mobstatus.multiple);
+        mobstatus.movespeed = (int)Mathf.Round(mobstatus.movespeed * mobstatus.multiple);
     }
     protected void Die()
     {
@@ -24,6 +32,7 @@ public class Monster : MobStatus
             GameObject potionCLone = Instantiate(potion);
             potionCLone.transform.position = this.gameObject.transform.position;
         }
+        UserStatus.killcount++;
         Destroy(gameObject);
     }
 }

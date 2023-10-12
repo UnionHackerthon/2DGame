@@ -5,9 +5,7 @@ using UnityEngine;
 public static class UserStatus
 {
     public static int score;
-    public static int maxhp;
-    public static int hp;
     public static int hit;
-    public static int roomclear;
+    public static int killcount;
     public static bool completed = false;
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 746510576953560326}
   - component: {fileID: 746510576953560325}
   - component: {fileID: 746510576953560322}
+  - component: {fileID: 2965761232614864627}
   - component: {fileID: 525962696492215211}
   m_Layer: 0
   m_Name: fireBoss_0
@@ -120,19 +121,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c88f253c44c94447ad7b71891d73269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 50
-  hp: 0
-  damage: 0
-  movespeed: 0
-  multiple: 0
   player: {fileID: 0}
   potion: {fileID: 5704640617374767386, guid: b2711d04ea25bbf4c8fbc71766fdc887, type: 3}
+  mobstatus: {fileID: 2965761232614864627}
   min: 0
   max: 10
   fireBossAnimator: {fileID: 746510576953560325}
   fireTime: 3
   AtDamage: 20
   clearUi: {fileID: 7137996541137130395, guid: 537135677df7f6d4b91d0490436812de, type: 3}
+--- !u!114 &2965761232614864627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746510576953560324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be573fb13de8c184a969bdb8351829bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhp: 200
+  hp: 200
+  damage: 30
+  movespeed: 2
+  multiple: 1
 --- !u!135 &525962696492215211
 SphereCollider:
   m_ObjectHideFlags: 0

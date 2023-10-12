@@ -24,9 +24,11 @@ public class FireBoss : Monster
 
     private void Update() 
     {
-        if (hp < 0) {
+        if (mobstatus.hp <= 0) {
             clearUi.SetActive(true);
             Time.timeScale = 0f;
+            UserStatus.completed = true;
+            GameObject.Find("BackEndManager").GetComponent<BalanceAI>().SetBalance();
         }
     }
 

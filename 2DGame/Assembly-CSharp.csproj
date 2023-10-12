@@ -86,6 +86,7 @@
     <Compile Include="Assets\Script\MonsterSc\FireBoss.cs" />
     <Compile Include="Assets\Script\MonsterSc\WaterMonster.cs" />
     <Compile Include="Assets\Script\HpPotion.cs" />
+    <Compile Include="Assets\Script\BackEnd\InGameRankMain.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Shader\VertexNormals.shader" />

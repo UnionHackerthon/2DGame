@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RoomController : Singleton<RoomController>
 {
+    public GameObject StartUI;
     public string globalRoomTitle = "Basement";
 
     public RoomInfo currentLoadRoomData;
@@ -18,6 +19,18 @@ public class RoomController : Singleton<RoomController>
 
 
     public bool isLoadingRoom = false;
+
+    public void Reset(GameObject currentUI)
+    {
+        StartUI.SetActive(true);
+        currentUI.SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        StartUI.SetActive(false);
+        CreatedRoom();
+    }
 
     public void CreatedRoom()
     {

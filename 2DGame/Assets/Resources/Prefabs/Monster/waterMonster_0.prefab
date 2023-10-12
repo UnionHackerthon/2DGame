@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2936448665535137066}
   - component: {fileID: 2936448665535137067}
   - component: {fileID: 2936448665535137064}
-  - component: {fileID: 2936448665535137069}
   - component: {fileID: 6721922380394937759}
   - component: {fileID: -4320772346185642772}
+  - component: {fileID: 2936448665535137069}
+  - component: {fileID: -8865508754831987026}
   m_Layer: 0
   m_Name: waterMonster_0
   m_TagString: Monster
@@ -109,28 +110,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2936448665535137069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2936448665535137065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe35f523c40485e45b8ed4e92e3ca5fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxhp: 10
-  hp: 20
-  damage: 5
-  movespeed: 2
-  multiple: 0
-  player: {fileID: 0}
-  potion: {fileID: 5704640617374767386, guid: b2711d04ea25bbf4c8fbc71766fdc887, type: 3}
-  min: 0
-  max: 10
-  waterMonsterAnimator: {fileID: 2936448665535137064}
 --- !u!135 &6721922380394937759
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -160,3 +139,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2936448665535137069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2936448665535137065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe35f523c40485e45b8ed4e92e3ca5fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  potion: {fileID: 5704640617374767386, guid: b2711d04ea25bbf4c8fbc71766fdc887, type: 3}
+  mobstatus: {fileID: -8865508754831987026}
+  min: 0
+  max: 10
+  waterMonsterAnimator: {fileID: 2936448665535137064}
+--- !u!114 &-8865508754831987026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2936448665535137065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be573fb13de8c184a969bdb8351829bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhp: 40
+  hp: 40
+  damage: 5
+  movespeed: 1
+  multiple: 1

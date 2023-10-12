@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8273519515213528584}
   - component: {fileID: 8273519515213528587}
   - component: {fileID: 3735134479781063115}
+  - component: {fileID: -2478704571575532625}
   - component: {fileID: -8128039153341308307}
   - component: {fileID: 5870180152960866015}
   m_Layer: 0
@@ -121,16 +122,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33c1fcb428828f43b4af694d60e80c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 10
-  hp: 20
-  damage: 5
-  movespeed: 2
-  multiple: 0
   player: {fileID: 0}
   potion: {fileID: 5704640617374767386, guid: b2711d04ea25bbf4c8fbc71766fdc887, type: 3}
+  mobstatus: {fileID: -2478704571575532625}
   min: 0
   max: 10
   grassMonsterAnimator: {fileID: 8273519515213528587}
+--- !u!114 &-2478704571575532625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8273519515213528586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be573fb13de8c184a969bdb8351829bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhp: 20
+  hp: 20
+  damage: 5
+  movespeed: 3
+  multiple: 1
 --- !u!54 &-8128039153341308307
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,18 +5,31 @@ using UnityEngine;
 
 public class BalanceAI : MonoBehaviour
 {
-    void SetBalance()
+    public bool gamelock = false;
+    public void SetBalance()
     {
+        gamelock = true;
+        int updatescore = 0;
         if (UserStatus.completed == true)
         {
-            // UserStatus.score += (int)Math.Round((300-UserStatus.score/10) * (Math.Log10(3000 - UserStatus.score)-1)); 3000에 수렴
-            UserStatus.score += (500 - (UserStatus.hit * 25) > 0) ? 1000 - (UserStatus.hit * 25) : 0 + 400;
+            updatescore += (500 - (UserStatus.hit * 25) > 0) ? 1000 - (UserStatus.hit * 25) : 0 + 400; // 클리어시 400점, 히트 횟수로 최대 500 -> 400~900
         }
         else
         {
-            int updatescore = (UserStatus.roomclear - 10) * 30; // max room=20 기준, 값에 따라 추후 수정. 약 50% 이상 클리어시 점수 증가
-            updatescore -= (UserStatus.hit * 7); // 피격 횟수에 따라 최대 140점 감점, 80% 이상 클리어시 대부분 점수 증가
+            updatescore += -200; // 클리어 실패시 200점 감소
         }
+        updatescore = UserStatus.killcount * 10; // 몹을 죽이면 10점 추가
+        updatescore -= (UserStatus.hit * 7); // 피격시 5점 감점
+
+        UserStatus.score += updatescore;
+        UserStatus.hit = 0;
+        UserStatus.killcount = 0;
+        UserStatus.completed = false;
+
+        Player p = GameObject.FindWithTag("Player").GetComponent<Player>();
+        p.hp = p.maxhp;
+        GameObject.Find("BackEndManager").GetComponent<InGameRankMain>().scriptableObject.score = UserStatus.score;
+        GameObject.Find("BackEndManager").GetComponent<InGameRankMain>().PostScore();
     }
 }
 

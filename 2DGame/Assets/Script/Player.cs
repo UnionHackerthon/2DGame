@@ -65,6 +65,10 @@ public class Player : Singleton<Player>
         if (hp <= 0) {
             overUi.SetActive(true);
             Time.timeScale = 0f;
+
+            BalanceAI bai = GameObject.Find("BackEndManager").GetComponent<BalanceAI>();
+            
+            if(bai.gamelock == false) bai.SetBalance();
         }
 
         hpSlider.value = hp / 100;
@@ -109,7 +113,7 @@ public class Player : Singleton<Player>
         if (other.CompareTag("Monster") && b) {
             StartCoroutine(ColorChange());
             UserStatus.hit++;
-            hp -= 10;
+            hp -= other.gameObject.GetComponent<MobStatus>().damage;
             b = false;
         }
     }

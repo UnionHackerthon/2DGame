@@ -63,7 +63,7 @@ public class Room : MonoBehaviour
             if (element == "Fire") {
                 Instantiate(bossType[0], this.gameObject.transform.Find("Room").transform);
             } else if (element == "Grass") {
-                Instantiate(bossType[1], this.gameObject.transform);
+                Instantiate(bossType[1], this.gameObject.transform.Find("Room").transform);
             } else {
                 Instantiate(bossType[2], this.gameObject.transform.Find("Room").transform);
             }
