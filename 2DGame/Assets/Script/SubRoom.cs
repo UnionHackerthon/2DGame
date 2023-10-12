@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SubRoom : MonoBehaviour
@@ -34,6 +35,9 @@ public class SubRoom : MonoBehaviour
     public bool isRoomPathBool = false;
     public RoomMinimap minimapRoom;
 
+    public int minsummon;
+    public int maxsummon;
+    public GameObject mob;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +92,20 @@ public class SubRoom : MonoBehaviour
 
 
         updateRoomSetup();
+
+        if (roomName == "Single" && parentRoom.GetComponent<Room>().distance != 0)
+        {
+            int summonamount = Random.Range(minsummon, maxsummon + 1);
+
+            for (int i = 0; i < summonamount; i++)
+            {
+                int x = Random.Range(center_Position.x - Width / 4, center_Position.x + (Width / 4) + 1);
+                int z = Random.Range(center_Position.z - Width / 4, center_Position.z + (Width / 4) + 1);
+                GameObject tmp = Instantiate(mob, new Vector3(gameObject.transform.position.x + x, 0, gameObject.transform.position.z + z), Quaternion.identity);
+                tmp.transform.parent = gameObject.transform;
+                parentRoom.GetComponent<Room>().totalmonsterNum++;
+            }
+        }
     }
 
     private void Update()
@@ -120,6 +138,10 @@ public class SubRoom : MonoBehaviour
 
             GameObject miniRoom = minimapRoom.gameObject;
             miniRoom.transform.SetParent(parentRoom.transform);
+        }
+        else
+        {
+            parentRoom = transform.parent.GetComponent<Room>();
         }
     }
     public void minimapUpdate()

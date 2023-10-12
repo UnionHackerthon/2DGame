@@ -8,7 +8,7 @@ public class Monster : MonoBehaviour
     {
         if (other.CompareTag("Player")) {
             Destroy(this.gameObject);
-            transform.GetComponentInParent<Room>().monsterNum--;
+            transform.GetComponentInParent<Room>().totalmonsterNum--;
         }
     }
 }
