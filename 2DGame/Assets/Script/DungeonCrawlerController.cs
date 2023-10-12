@@ -78,6 +78,8 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
 
     public RoomInfo[,] posArr = new RoomInfo[10, 10];       // 방 좌표에 대한 2차원 배열
 
+    public string elementType;
+
     public string GetElement()
     {
         int rn = Random.Range(0, 3);
@@ -363,6 +365,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
         single.roomID = name + "(" + pos.center_Position.x + ", " + pos.center_Position.y + ", " + pos.center_Position.z + ")";
         single.roomName = name;
         single.element = GetElement();
+        elementType = single.element;
 
         single.center_Position = pos.center_Position;
         single.mergeCenter_Position = pos.mergeCenter_Position;

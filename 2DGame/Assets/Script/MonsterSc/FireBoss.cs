@@ -26,8 +26,7 @@ public class FireBoss : Monster
         fireBossAnimator.SetBool("Attack", true);
         GameObject.Find("Player").GetComponent<Player>().hp -= AtDamage;
         
-
-        transform.LookAt(player);
+    
     }
 
 

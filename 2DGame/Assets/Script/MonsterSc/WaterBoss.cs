@@ -24,10 +24,6 @@ public class WaterBoss : Monster
         fireBossAnimator.SetBool("BAttack", false);
     }
 
-    private void Update() 
-    {
-        transform.LookAt(player);
-    }
 
     IEnumerator Attack() 
     {

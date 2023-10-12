@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SubRoom : MonoBehaviour
 {
+
+    public List<GameObject> monsterType;
+    public List<GameObject> bossType;
     public int Width;
     public int Height;
 
@@ -97,13 +100,22 @@ public class SubRoom : MonoBehaviour
 
         if (roomName == "Single" && parentRoom.GetComponent<Room>().distance != 0)
         {
+
+            string parentRoomType = transform.GetComponentInParent<Room>().element;
+            if (parentRoomType == "Fire") {
+                mob = monsterType[0];
+            } else if (parentRoomType == "Grass") {
+                mob = monsterType[1];
+            } else {
+                mob = monsterType[2];
+            }
             int summonamount = Random.Range(minsummon, maxsummon + 1);
 
             for (int i = 0; i < summonamount; i++)
             {
                 int x = Random.Range(center_Position.x - Width / 4, center_Position.x + (Width / 4) + 1);
                 int z = Random.Range(center_Position.z - Width / 4, center_Position.z + (Width / 4) + 1);
-                GameObject tmp = Instantiate(mob, new Vector3(gameObject.transform.position.x + x, 0, gameObject.transform.position.z + z), Quaternion.identity);
+                GameObject tmp = Instantiate(mob, new Vector3(gameObject.transform.position.x + x, 0, gameObject.transform.position.z + z), Quaternion.Euler(new Vector3(90, 0, 0)));
                 tmp.transform.parent = gameObject.transform;
                 parentRoom.GetComponent<Room>().totalmonsterNum++;
             }

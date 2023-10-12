@@ -233,6 +233,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d909504efcf8d1447b329ec1dd89bef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterType:
+  - {fileID: 8310783157515517889, guid: 84ba4423c6a3b4d45b8b6854338c16b7, type: 3}
+  - {fileID: 8273519515213528586, guid: c13fa2109799f0948ae717845863f1c7, type: 3}
+  - {fileID: 2936448665535137065, guid: a5c3a1947bbdb9a409a32452ba21abaa, type: 3}
+  bossType:
+  - {fileID: 746510576953560324, guid: f212cd63e666ea54c8e00aee817cc521, type: 3}
+  - {fileID: 2047739085989625693, guid: a988c637335577a4b9edd5fbef656733, type: 3}
   Width: 0
   Height: 0
   roomName: 
@@ -257,7 +264,8 @@ MonoBehaviour:
   minimapRoom: {fileID: 0}
   minsummon: 3
   maxsummon: 6
-  mob: {fileID: 7646512524902809649, guid: 995e8a6453cb00d49831396e20712601, type: 3}
+  mob: {fileID: 0}
+  potion: {fileID: 0}
 --- !u!65 &2107322150607639295
 BoxCollider:
   m_ObjectHideFlags: 0
