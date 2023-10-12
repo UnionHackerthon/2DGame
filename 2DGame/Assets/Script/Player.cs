@@ -88,6 +88,7 @@ public class Player : Singleton<Player>
             if(hp > maxhp) {
                 hp = maxhp;
             }
+            hpSlider.value = hp / 100;
             Destroy(collision.gameObject);
         }
     }
