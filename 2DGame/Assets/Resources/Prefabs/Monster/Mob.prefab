@@ -116,3 +116,6 @@ MonoBehaviour:
   movespeed: 3
   multiple: 0
   player: {fileID: 0}
+  potion: {fileID: 5704640617374767386, guid: b2711d04ea25bbf4c8fbc71766fdc887, type: 3}
+  min: 0
+  max: 10

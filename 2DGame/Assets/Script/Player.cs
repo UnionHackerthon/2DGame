@@ -80,8 +80,12 @@ public class Player : Singleton<Player>
             FadeInOut.Instance.setFade(false, 0.15f);
         }
 
-        if (collision.CompareTag("Potion") && maxhp > hp + collision.GetComponent<HpPotion>().value) {
+        if (collision.CompareTag("Potion") && maxhp > hp) {
             hp += collision.GetComponent<HpPotion>().value;
+            if(hp > maxhp)
+            {
+                hp = maxhp;
+            }
             Destroy(collision.gameObject);
         }
     }

@@ -213,10 +213,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7.5
+  maxhp: 100
+  hp: 100
   horizontal: 0
   vertical: 0
   isMoveStatus: 1
   mainCamera: {fileID: 1906409562}
+  a: 1
+  b: 0
   bulletPrefab: {fileID: 1533040783531813280, guid: 34427f1e117b5034da17411bb5dab1ce, type: 3}
 --- !u!65 &100108660
 BoxCollider:
