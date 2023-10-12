@@ -13,8 +13,9 @@ public class Bullet : MonoBehaviour
     public void Update() 
     {
         Vector3 dir = target - transform.position;
+        float distanceThisFrame = speed * Time.deltaTime;
 
-        this.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
 
