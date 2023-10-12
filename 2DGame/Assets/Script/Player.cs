@@ -36,24 +36,6 @@ public class Player : Singleton<Player>
 
         chRenderer = this.gameObject.GetComponent<Renderer>();
         b = true;
-        
-        
-        for (int i = 0; i < RoomController.Instance.loadedRooms.Count; i++) {
-            if(RoomController.Instance.loadedRooms[i].name == "Basement-Single 0, 0")
-            {
-                RoomController.Instance.loadedRooms[i].childRooms.gameObject.SetActive(true);
-            }
-            else
-            {
-                RoomController.Instance.loadedRooms[i].childRooms.gameObject.SetActive(false);
-            }
-                //if (nextRoom.GetComponent<Room>().parent_Position == RoomController.Instance.loadedRooms[i].parent_Position) {
-                //    RoomController.Instance.loadedRooms[i].childRooms.gameObject.SetActive(true);
-                //} else {
-                //    RoomController.Instance.loadedRooms[i].childRooms.gameObject.SetActive(false);
-                //}
-        }
-
     }
 
     void Update()

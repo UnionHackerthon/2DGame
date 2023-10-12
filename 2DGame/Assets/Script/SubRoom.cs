@@ -120,7 +120,17 @@ public class SubRoom : MonoBehaviour
                 parentRoom.GetComponent<Room>().totalmonsterNum++;
             }
         }
-    }
+
+        
+        if (gameObject.transform.parent.gameObject.GetComponent<Room>().distance==0)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+}
 
     private void Update()
     {

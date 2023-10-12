@@ -56,6 +56,7 @@ public class Room : MonoBehaviour
             return;
         }
 
+       
         childRooms = GetComponentInChildren<SubRoom>();
 
         if (childRooms != null)
@@ -68,6 +69,15 @@ public class Room : MonoBehaviour
             childRooms.parent_Position       = parent_Position;
             childRooms.mergeCenter_Position  = mergeCenter_Position;
 
+            /*
+            if (childRooms.gameObject.transform.parent.gameObject.GetComponent<Room>().distance==0)
+            {
+                childRooms.gameObject.SetActive(true);
+            }
+            else
+            {
+                childRooms.gameObject.SetActive(false);
+            }*/
         }
 
         isUpdatedWalls = false;
