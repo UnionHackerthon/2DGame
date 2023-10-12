@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2047739085989625695}
   - component: {fileID: 2047739085989625692}
   - component: {fileID: 2047739085989625691}
+  - component: {fileID: 1100970342330148728}
   m_Layer: 0
   m_Name: waterBoss_0
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,3 +134,16 @@ MonoBehaviour:
   BtDamage: 30
   fireTime: 3
   clearUi: {fileID: 7137996541137130395, guid: 537135677df7f6d4b91d0490436812de, type: 3}
+--- !u!135 &1100970342330148728
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047739085989625693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.333334
+  m_Center: {x: 0, y: 0, z: 0}

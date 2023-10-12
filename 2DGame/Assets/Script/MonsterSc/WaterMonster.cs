@@ -9,13 +9,11 @@ public class WaterMonster : Monster
     void Start()
     {
         this.gameObject.GetComponent<Animator>();
-
-        player = GameObject.FindWithTag("Player").transform;
     }
 
     private void Update() 
     {
-
+        player = GameObject.FindWithTag("Player").transform;
 
         transform.position = Vector3.MoveTowards(transform.position, player.position, movespeed * Time.deltaTime);
     }

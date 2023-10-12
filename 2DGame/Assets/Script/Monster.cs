@@ -11,6 +11,18 @@ public class Monster : MobStatus
 
     public int max;
 
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Bullet")) {
+            hp -= other.GetComponent<Bullet>().deamge;
+        }
+    }
+
+    private void Update() {
+        if (hp < 0) {
+            Die();
+        }
+    }
+
     void Die()
     {
         transform.GetComponentInParent<Room>().totalmonsterNum--;
