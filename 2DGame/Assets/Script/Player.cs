@@ -48,7 +48,6 @@ public class Player : Singleton<Player>
 
     void Update()
     {
-
         timer += Time.deltaTime;
 
         horizontal = Input.GetAxis("Horizontal");
@@ -68,6 +67,7 @@ public class Player : Singleton<Player>
             Time.timeScale = 0f;
         }
 
+        hpSlider.value = hp / 100;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -111,7 +111,6 @@ public class Player : Singleton<Player>
             UserStatus.hit++;
             hp -= 10;
             b = false;
-            hpSlider.value = hp / 100;
         }
     }
 

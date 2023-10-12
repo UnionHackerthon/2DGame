@@ -13,17 +13,10 @@ public class Monster : MobStatus
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Bullet")) {
-            hp -= other.GetComponent<Bullet>().deamge;
+            hp -= other.GetComponent<Bullet>().damage;
         }
     }
-
-    private void Update() {
-        if (hp < 0) {
-            Die();
-        }
-    }
-
-    void Die()
+    protected void Die()
     {
         transform.GetComponentInParent<Room>().totalmonsterNum--;
         if (6 == Random.Range(min, max))

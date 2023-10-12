@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     public GameObject potion;
 
-    public int deamge = 10;
+    public int damage = 10;
 
     public int min;
 
@@ -33,12 +33,6 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
         if (other.CompareTag("Monster")) {
-            other.transform.GetComponentInParent<Room>().totalmonsterNum--;
-            if (6 == Random.Range(min, max)) {
-                GameObject potionCLone = Instantiate(potion);
-                potionCLone.transform.position = this.gameObject.transform.position;
-            }
-            Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
         

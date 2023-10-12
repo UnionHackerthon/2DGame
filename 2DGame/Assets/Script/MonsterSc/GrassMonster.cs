@@ -20,5 +20,10 @@ public class GrassMonster : Monster
         player = GameObject.FindWithTag("Player").transform;
 
         transform.position = Vector3.MoveTowards(transform.position, player.position, movespeed * Time.deltaTime);
+
+        if (hp <= 0)
+        {
+            Die();
+        }
     }
 }
