@@ -1,14 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Slider slider;
+    public static UIManager instance;
 
-    private void Update() 
+    private void Start() {
+        if (instance != null) {
+            instance = this;
+        } else {
+            Destroy(this);
+        }
+        DontDestroyOnLoad(this);
+    }
+
+    public void OnClickStart() 
     {
-        slider.value = GameObject.Find("Player").GetComponent<Player>().hp / 100;
+        SceneManager.LoadScene("InGame");
+    }
+
+    public void OnCLickEnd() 
+    {
+        Application.Quit();
     }
 }

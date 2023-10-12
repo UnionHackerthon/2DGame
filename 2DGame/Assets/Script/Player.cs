@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Singleton<Player>
 {
@@ -19,6 +20,8 @@ public class Player : Singleton<Player>
     public Camera mainCamera;
 
     Renderer chRenderer;
+
+    public Slider hpSlider;
 
     public float a;
 
@@ -82,8 +85,7 @@ public class Player : Singleton<Player>
 
         if (collision.CompareTag("Potion") && maxhp > hp) {
             hp += collision.GetComponent<HpPotion>().value;
-            if(hp > maxhp)
-            {
+            if(hp > maxhp) {
                 hp = maxhp;
             }
             Destroy(collision.gameObject);
@@ -97,6 +99,7 @@ public class Player : Singleton<Player>
             UserStatus.hit++;
             hp -= 10;
             b = false;
+            hpSlider.value = hp / 100;
         }
     }
 
