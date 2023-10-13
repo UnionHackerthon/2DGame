@@ -20,9 +20,9 @@ public class Monster : MonoBehaviour
 
     public void Balancing()
     {
-        mobstatus.hp = (int)Mathf.Round(mobstatus.hp * mobstatus.multiple);
-        mobstatus.damage = (int)Mathf.Round(mobstatus.damage * mobstatus.multiple);
-        mobstatus.movespeed = (int)Mathf.Round(mobstatus.movespeed * mobstatus.multiple);
+        mobstatus.hp = (int)Mathf.Round(mobstatus.hp * (float)UserStatus.score/1500);
+        mobstatus.damage = (int)Mathf.Round(mobstatus.damage * (float)UserStatus.score / 1500);
+        mobstatus.movespeed = (int)Mathf.Round(mobstatus.movespeed * (float)UserStatus.score / 1500);
     }
     protected void Die()
     {

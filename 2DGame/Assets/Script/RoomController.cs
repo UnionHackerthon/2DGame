@@ -29,6 +29,7 @@ public class RoomController : Singleton<RoomController>
     public void StartGame()
     {
         StartUI.SetActive(false);
+        GameObject.Find("BackEndManager").GetComponent<BalanceAI>().Setting();
         CreatedRoom();
         GameObject.Find("BackEndManager").GetComponent<BalanceAI>().gamelock = false;
     }
@@ -46,7 +47,7 @@ public class RoomController : Singleton<RoomController>
         DungeonCrawlerController.Instance.CreatedRoom();
         
         SetRoomPath();
-
+        
 
     }
 

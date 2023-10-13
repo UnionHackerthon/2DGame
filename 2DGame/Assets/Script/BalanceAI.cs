@@ -34,6 +34,13 @@ public class BalanceAI : MonoBehaviour
             GameObject.Find("BackEndManager").GetComponent<InGameRankMain>().PostScore();
         }
     }
+    public void Setting()
+    {
+        DungeonCrawlerController DCC = GameObject.Find("DungeonInfo").GetComponent<DungeonCrawlerController>();
+        DCC.minRoomCnt = 10 + (int)Mathf.Round((UserStatus.score - 1500) / 200);
+        DCC.maxRoomCnt = 15 + (int)Mathf.Round((UserStatus.score - 1500) / 150);
+        DCC.maxDistance = 2 + (int)Mathf.Round((UserStatus.score / 500));
+    }
 }
 
 

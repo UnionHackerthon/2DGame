@@ -8,6 +8,4 @@ public class MobStatus : MonoBehaviour
     public int hp;
     public int damage;
     public float movespeed;
-
-    public float multiple;
 }
