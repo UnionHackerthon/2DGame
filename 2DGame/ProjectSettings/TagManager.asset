@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door
+  - Wall
+  - Room
+  - Minimap
+  - Monster
+  - Bullet
   layers:
   - Default
   - TransparentFX

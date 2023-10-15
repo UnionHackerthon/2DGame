@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RoomController : Singleton<RoomController>
 {
+    public GameObject StartUI;
     public string globalRoomTitle = "Basement";
 
     public RoomInfo currentLoadRoomData;
@@ -19,6 +20,20 @@ public class RoomController : Singleton<RoomController>
 
     public bool isLoadingRoom = false;
 
+    public void Reset(GameObject currentUI)
+    {
+        StartUI.SetActive(true);
+        currentUI.SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        StartUI.SetActive(false);
+        GameObject.Find("BackEndManager").GetComponent<BalanceAI>().Setting();
+        CreatedRoom();
+        GameObject.Find("BackEndManager").GetComponent<BalanceAI>().gamelock = false;
+    }
+
     public void CreatedRoom()
     {
         isLoadingRoom = false;
@@ -30,8 +45,9 @@ public class RoomController : Singleton<RoomController>
 
         Player.Instance.transform.position = new Vector3(0, 0.5f, 0) ;
         DungeonCrawlerController.Instance.CreatedRoom();
+        
         SetRoomPath();
-
+        
 
     }
 
@@ -78,6 +94,7 @@ public class RoomController : Singleton<RoomController>
         room.transform.GetComponent<Room>().roomName                = settingRoom.roomName;
         room.transform.GetComponent<Room>().roomType                = settingRoom.roomType;
         room.transform.GetComponent<Room>().roomId                  = settingRoom.roomID;
+        room.transform.GetComponent<Room>().element                 = settingRoom.element;
         room.transform.GetComponent<Room>().parent_Position         = settingRoom.parent_Position;
         room.transform.GetComponent<Room>().mergeCenter_Position    = settingRoom.mergeCenter_Position;
         room.transform.GetComponent<Room>().distance                = settingRoom.distance;

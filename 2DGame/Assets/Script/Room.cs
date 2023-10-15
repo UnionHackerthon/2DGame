@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class Room : MonoBehaviour
 {
+
+    public List<GameObject> bossType;
+
     public int Width;
     public int Height;
 
     public string roomName;
     public string roomType;
     public string roomId;
+    public string element;
 
     public Vector3Int center_Position;
     public Vector3Int parent_Position;
@@ -24,6 +28,10 @@ public class Room : MonoBehaviour
     public GameObject prefabsDoor;
     public GameObject prefabsWall;
 
+
+    public int totalmonsterNum;
+
+    public List<Transform> children = new List<Transform>();
 
     public Room(int x, int y, int z)
     {
@@ -51,6 +59,17 @@ public class Room : MonoBehaviour
             return;
         }
 
+        if (roomName == "Boss") {
+            if (element == "Fire") {
+                Instantiate(bossType[0], this.gameObject.transform.Find("Room").transform);
+            } else if (element == "Grass") {
+                Instantiate(bossType[1], this.gameObject.transform.Find("Room").transform);
+            } else {
+                Instantiate(bossType[2], this.gameObject.transform.Find("Room").transform);
+            }
+        }
+
+       
         childRooms = GetComponentInChildren<SubRoom>();
 
         if (childRooms != null)
@@ -63,10 +82,22 @@ public class Room : MonoBehaviour
             childRooms.parent_Position       = parent_Position;
             childRooms.mergeCenter_Position  = mergeCenter_Position;
 
+            /*
+            if (childRooms.gameObject.transform.parent.gameObject.GetComponent<Room>().distance==0)
+            {
+                childRooms.gameObject.SetActive(true);
+            }
+            else
+            {
+                childRooms.gameObject.SetActive(false);
+            }*/
         }
 
         isUpdatedWalls = false;
+
     }
+
+
 
     public void RemoveUnconnectedWalls()
     {

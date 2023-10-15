@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SubRoom : MonoBehaviour
 {
+
+    public List<GameObject> monsterType;
+
     public int Width;
     public int Height;
 
@@ -34,6 +38,11 @@ public class SubRoom : MonoBehaviour
     public bool isRoomPathBool = false;
     public RoomMinimap minimapRoom;
 
+    public int minsummon;
+    public int maxsummon;
+    public GameObject mob;
+
+    public GameObject potion;
 
     // Start is called before the first frame update
     void Start()
@@ -88,7 +97,40 @@ public class SubRoom : MonoBehaviour
 
 
         updateRoomSetup();
-    }
+
+        if (roomName == "Single" && parentRoom.GetComponent<Room>().distance != 0)
+        {
+
+            string parentRoomType = transform.GetComponentInParent<Room>().element;
+            if (parentRoomType == "Fire") {
+                mob = monsterType[0];
+            } else if (parentRoomType == "Grass") {
+                mob = monsterType[1];
+            } else {
+                mob = monsterType[2];
+            }
+            int summonamount = Random.Range(minsummon, maxsummon + 1);
+
+            for (int i = 0; i < summonamount; i++)
+            {
+                int x = Random.Range(center_Position.x - Width / 4, center_Position.x + (Width / 4) + 1);
+                int z = Random.Range(center_Position.z - Width / 4, center_Position.z + (Width / 4) + 1);
+                GameObject tmp = Instantiate(mob, new Vector3(gameObject.transform.position.x + x, 0, gameObject.transform.position.z + z), Quaternion.Euler(new Vector3(90, 0, 0)));
+                tmp.transform.parent = gameObject.transform;
+                parentRoom.GetComponent<Room>().totalmonsterNum++;
+            }
+        }
+
+        
+        if (gameObject.transform.parent.gameObject.GetComponent<Room>().distance==0)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+}
 
     private void Update()
     {
@@ -120,6 +162,10 @@ public class SubRoom : MonoBehaviour
 
             GameObject miniRoom = minimapRoom.gameObject;
             miniRoom.transform.SetParent(parentRoom.transform);
+        }
+        else
+        {
+            parentRoom = transform.parent.GetComponent<Room>();
         }
     }
     public void minimapUpdate()

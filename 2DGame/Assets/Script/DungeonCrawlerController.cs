@@ -74,7 +74,19 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
     public Vector3Int startRoomPosition;                        // 시작 포지션
     public Vector3Int bossRoomPosition;                         // 보스 방 포지션
 
+    public Vector3Int CompensationPosition; // 이벤트 방 포지션
+
     public RoomInfo[,] posArr = new RoomInfo[10, 10];       // 방 좌표에 대한 2차원 배열
+
+    public string elementType;
+
+    public string GetElement()
+    {
+        int rn = Random.Range(0, 3);
+        if (rn == 0) return "Fire";
+        else if (rn == 1) return "Water";
+        else return "Grass";
+    }
 
     public void CreatedRoom()
     {
@@ -117,6 +129,8 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
         // 특수방 BOSS 방 생성
         AddBossRoom();
 
+        AddCompensationRoom();
+
         SetupPosition();
     }
     
@@ -127,6 +141,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
         RoomInfo single             = room;
         single.roomID               = name + "(" + pos.x + ", " + pos.y + ", " + pos.z + ")";
         single.roomName             = name;
+        single.element              = room.element;
         single.center_Position      = pos;
         single.parent_Position      = pos;
         single.roomType             = "Single";
@@ -221,6 +236,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
                             && !posArr[bossRoomPos.z, bossRoomPos.x].isValidRoom)
                         {
                             posArr[bossRoomPos.z, bossRoomPos.x].roomName               = "Boss";
+                            posArr[bossRoomPos.z, bossRoomPos.x].element                = GetElement();
                             posArr[bossRoomPos.z, bossRoomPos.x].isValidRoom = true;
                             posArr[bossRoomPos.z, bossRoomPos.x].center_Position        = bossRoomPos;
                             posArr[bossRoomPos.z, bossRoomPos.x].parent_Position        = bossRoomPos;
@@ -237,6 +253,44 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
                 }
             }
         }
+    }
+
+    public void AddCompensationRoom() 
+    {
+        //int a = GameObject.Find("RoomController").GetComponent<RoomController>().loadedRooms.Count;
+
+        bool selectCompensationsRoomStatus = false;
+
+        for (int idx = validRoomList.Count - 1; 0 < idx; idx--) {
+            if (!selectCompensationsRoomStatus) {
+                int setlIstCnt = idx;
+                Vector3Int pos = validRoomList[setlIstCnt].center_Position;
+
+                for (int i = 0; i < direction4.Count; i++) {
+                    selectCompensationsRoomStatus = false;
+                    Vector3Int compensationsPos = posArr[pos.z, pos.x].center_Position + direction4[i];
+
+                    if (PossibleArr(compensationsPos)) {
+                        if ((AroundRoomCount(compensationsPos) < 2) && !posArr[compensationsPos.z, compensationsPos.x].isValidRoom) {
+                            posArr[compensationsPos.z, compensationsPos.x].roomName                 = "Compensation";
+                            posArr[compensationsPos.z, compensationsPos.x].element                  = "None";
+                            posArr[compensationsPos.z, compensationsPos.x].isValidRoom              = true;
+                            posArr[compensationsPos.z, compensationsPos.x].center_Position          = compensationsPos;
+                            posArr[compensationsPos.z, compensationsPos.x].parent_Position          = compensationsPos;
+                            posArr[compensationsPos.z, compensationsPos.x].mergeCenter_Position     = compensationsPos;
+                            posArr[compensationsPos.z, compensationsPos.x].distance                 = posArr[pos.z, pos.x].distance + 1;
+                            posArr[compensationsPos.z, compensationsPos.x].roomType                 = "Single";
+
+                            CompensationPosition = compensationsPos;
+                            selectCompensationsRoomStatus = true;
+
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     // 방의 배열을 초기화
@@ -310,6 +364,9 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
         RoomInfo single = pos;
         single.roomID = name + "(" + pos.center_Position.x + ", " + pos.center_Position.y + ", " + pos.center_Position.z + ")";
         single.roomName = name;
+        single.element = GetElement();
+        elementType = single.element;
+
         single.center_Position = pos.center_Position;
         single.mergeCenter_Position = pos.mergeCenter_Position;
         single.roomType = pos.roomType;
